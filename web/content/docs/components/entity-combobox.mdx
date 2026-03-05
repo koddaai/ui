@@ -1,0 +1,74 @@
+---
+title: EntityCombobox
+description: Combobox genérico com busca assíncrona para entidades.
+---
+
+<ComponentPreview name="entity-combobox-demo" />
+
+## Instalação
+
+```bash
+npx @kobana/ui add entity-combobox
+```
+
+**Dependências shadcn/ui:** `popover`, `command`, `button`
+
+## Importação
+
+```tsx
+import { EntityCombobox } from "@/components/kobana/entity-combobox"
+```
+
+## Características
+
+- Busca assíncrona com debounce de 300ms
+- Ícone `ChevronsUpDown` no botão trigger
+- Ícone `Check` indicando o item selecionado
+- Spinner `Loader2` animado durante carregamento
+- Placeholder com `text-muted-foreground` quando sem valor
+- Largura do popover acompanha o trigger via CSS variable
+- Renderização customizável de itens e item selecionado
+
+## Props
+
+| Prop | Tipo | Default | Descrição |
+|------|------|---------|-----------|
+| `value` | `string` | — | Valor selecionado |
+| `onChange` | `(value: string, entity?: T) => void` | — | Callback com valor e entidade |
+| `onSearch` | `(query: string) => Promise<T[]>` | — | Busca async (debounce 300ms) |
+| `renderItem` | `(item: T) => ReactNode` | — | Renderização de cada item |
+| `renderSelected` | `(item: T) => ReactNode` | — | Renderização do item selecionado |
+| `getItemValue` | `(item: T) => string` | — | Extrai valor do item |
+| `getItemLabel` | `(item: T) => string` | — | Extrai label do item |
+| `placeholder` | `string` | `"Selecionar..."` | Placeholder |
+| `searchPlaceholder` | `string` | `"Buscar..."` | Placeholder da busca |
+| `emptyMessage` | `string` | `"Nenhum resultado encontrado."` | Mensagem vazio |
+| `disabled` | `boolean` | — | Desabilitado |
+| `className` | `string` | — | Classes adicionais |
+
+## Uso
+
+```tsx
+const [customerId, setCustomerId] = useState("")
+
+<EntityCombobox<Customer>
+  value={customerId}
+  onChange={(value, customer) => setCustomerId(value)}
+  onSearch={async (query) => {
+    const res = await api.customers.search({ query })
+    return res.data
+  }}
+  renderItem={(c) => (
+    <div className="flex flex-col">
+      <span className="font-medium">{c.name}</span>
+      <span className="text-xs text-muted-foreground">{c.document}</span>
+    </div>
+  )}
+  renderSelected={(c) => c.name}
+  getItemValue={(c) => c.id}
+  getItemLabel={(c) => c.name}
+  placeholder="Selecionar cliente..."
+  searchPlaceholder="Buscar por nome ou documento..."
+  emptyMessage="Nenhum cliente encontrado."
+/>
+```

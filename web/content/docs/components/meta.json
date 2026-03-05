@@ -1,0 +1,30 @@
+{
+  "pages": [
+    "address-form-fields",
+    "app-header",
+    "app-layout",
+    "app-sidebar",
+    "confirm-dialog",
+    "copy-cell",
+    "currency-input",
+    "data-table",
+    "empty-state",
+    "entity-combobox",
+    "export-modal",
+    "filter-bar",
+    "form-section",
+    "header-notifications",
+    "import-modal",
+    "locale-toggle",
+    "multiple-addresses",
+    "multiple-emails",
+    "multiple-phones",
+    "multiple-websites",
+    "number-input",
+    "onboarding-checklist",
+    "page-header",
+    "require-permission",
+    "status-badge",
+    "theme-toggle"
+  ]
+}

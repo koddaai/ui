@@ -1,0 +1,659 @@
+{
+  "$schema": "./schemas/component.schema.json",
+  "name": "@kodda/ui",
+  "version": "0.1.0",
+  "components": {
+    "tokens": {
+      "name": "Tokens",
+      "description": "Design tokens: cores semânticas, espaçamento e tipografia",
+      "category": "token",
+      "version": "0.1.0",
+      "files": [
+        "src/tokens/colors.ts",
+        "src/tokens/spacing.ts",
+        "src/tokens/typography.ts"
+      ],
+      "dependencies": {
+        "shadcn": [],
+        "kodda": [],
+        "npm": []
+      }
+    },
+    "status-badge": {
+      "name": "StatusBadge",
+      "description": "Badge semântico que mapeia status para cores e ícones",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/status-badge/status-badge.tsx",
+        "src/components/composites/status-badge/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["badge"],
+        "kodda": [],
+        "npm": []
+      }
+    },
+    "confirm-dialog": {
+      "name": "ConfirmDialog",
+      "description": "Dialog de confirmação com variantes de severidade",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/confirm-dialog/confirm-dialog.tsx",
+        "src/components/composites/confirm-dialog/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["alert-dialog", "button"],
+        "kodda": [],
+        "npm": []
+      }
+    },
+    "page-header": {
+      "name": "PageHeader",
+      "description": "Cabeçalho de página com título, breadcrumbs e ações",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/page-header/page-header.tsx",
+        "src/components/composites/page-header/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["breadcrumb", "button"],
+        "kodda": [],
+        "npm": []
+      }
+    },
+    "filter-bar": {
+      "name": "FilterBar",
+      "description": "Barra de filtros reutilizável com múltiplos tipos",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/filter-bar/filter-bar.tsx",
+        "src/components/composites/filter-bar/filter-bar-types.ts",
+        "src/components/composites/filter-bar/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["input", "select", "popover", "calendar", "button", "badge"],
+        "kodda": [],
+        "npm": []
+      }
+    },
+    "form-section": {
+      "name": "FormSection",
+      "description": "Seção de formulário com grid responsivo",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/form-section/form-section.tsx",
+        "src/components/composites/form-section/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["separator"],
+        "kodda": [],
+        "npm": []
+      }
+    },
+    "data-table": {
+      "name": "DataTable",
+      "description": "Tabela de dados com filtros, paginação, sorting e ações",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/data-table/data-table.tsx",
+        "src/components/composites/data-table/data-table-toolbar.tsx",
+        "src/components/composites/data-table/data-table-pagination.tsx",
+        "src/components/composites/data-table/data-table-actions.tsx",
+        "src/components/composites/data-table/data-table-bulk-actions.tsx",
+        "src/components/composites/data-table/data-table-column-header.tsx",
+        "src/components/composites/data-table/data-table-empty.tsx",
+        "src/components/composites/data-table/data-table-loading.tsx",
+        "src/components/composites/data-table/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["table", "checkbox", "dropdown-menu", "skeleton", "button", "select"],
+        "kodda": ["filter-bar", "status-badge"],
+        "npm": ["@tanstack/react-table"]
+      }
+    },
+    "copy-cell": {
+      "name": "CopyCell",
+      "description": "Célula com copy-to-clipboard, truncate e tooltip",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/copy-cell/copy-cell.tsx",
+        "src/components/composites/copy-cell/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["button", "tooltip"],
+        "kodda": [],
+        "npm": []
+      }
+    },
+    "currency-input": {
+      "name": "CurrencyInput",
+      "description": "Input com formatação automática de moeda (BRL/USD)",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/currency-input/currency-input.tsx",
+        "src/components/composites/currency-input/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["input"],
+        "kodda": [],
+        "npm": []
+      }
+    },
+    "address-form-fields": {
+      "name": "AddressFormFields",
+      "description": "Campos de endereço brasileiro com auto-lookup de CEP",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/address-form-fields/address-form-fields.tsx",
+        "src/components/composites/address-form-fields/state-combobox.tsx",
+        "src/components/composites/address-form-fields/city-combobox.tsx",
+        "src/components/composites/address-form-fields/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["form", "input", "popover", "command", "button"],
+        "kodda": [],
+        "npm": []
+      }
+    },
+    "entity-combobox": {
+      "name": "EntityCombobox",
+      "description": "Combobox genérico com busca assíncrona para entidades",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/entity-combobox/entity-combobox.tsx",
+        "src/components/composites/entity-combobox/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["popover", "command", "button"],
+        "kodda": [],
+        "npm": []
+      }
+    },
+    "empty-state": {
+      "name": "EmptyState",
+      "description": "Estado vazio com ícone, título, descrição e ação",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/empty-state/empty-state.tsx",
+        "src/components/composites/empty-state/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["button"],
+        "kodda": [],
+        "npm": []
+      }
+    },
+    "use-data-table": {
+      "name": "useDataTable",
+      "description": "Hook para gerenciar estado do DataTable (sorting, filtering, pagination, selection)",
+      "category": "hook",
+      "version": "0.1.0",
+      "files": [
+        "src/hooks/use-data-table.ts"
+      ],
+      "dependencies": {
+        "shadcn": [],
+        "kodda": [],
+        "npm": ["@tanstack/react-table"]
+      }
+    },
+    "use-filters": {
+      "name": "useFilters",
+      "description": "Hook para gerenciar estado de filtros com URL sync",
+      "category": "hook",
+      "version": "0.1.0",
+      "files": [
+        "src/hooks/use-filters.ts"
+      ],
+      "dependencies": {
+        "shadcn": [],
+        "kodda": [],
+        "npm": []
+      }
+    },
+    "use-pagination": {
+      "name": "usePagination",
+      "description": "Hook para paginação server-side",
+      "category": "hook",
+      "version": "0.1.0",
+      "files": [
+        "src/hooks/use-pagination.ts"
+      ],
+      "dependencies": {
+        "shadcn": [],
+        "kodda": [],
+        "npm": []
+      }
+    },
+    "list-page": {
+      "name": "ListPage",
+      "description": "Template de página de listagem completa",
+      "category": "template",
+      "version": "0.1.0",
+      "files": [
+        "src/components/templates/list-page/list-page.tsx",
+        "src/components/templates/list-page/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["button"],
+        "kodda": ["data-table", "page-header", "empty-state"],
+        "npm": ["@tanstack/react-table"]
+      }
+    },
+    "detail-page": {
+      "name": "DetailPage",
+      "description": "Template de página de detalhe com tabs opcionais",
+      "category": "template",
+      "version": "0.1.0",
+      "files": [
+        "src/components/templates/detail-page/detail-page.tsx",
+        "src/components/templates/detail-page/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["tabs", "separator", "skeleton"],
+        "kodda": ["page-header"],
+        "npm": []
+      }
+    },
+    "form-page": {
+      "name": "FormPage",
+      "description": "Template de página de formulário com barra sticky e guard de navegação",
+      "category": "template",
+      "version": "0.1.0",
+      "files": [
+        "src/components/templates/form-page/form-page.tsx",
+        "src/components/templates/form-page/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["button"],
+        "kodda": ["page-header", "confirm-dialog"],
+        "npm": []
+      }
+    },
+    "use-debounce": {
+      "name": "useDebounce",
+      "description": "Hook de debounce genérico",
+      "category": "hook",
+      "version": "0.1.0",
+      "files": [
+        "src/hooks/use-debounce.ts"
+      ],
+      "dependencies": {
+        "shadcn": [],
+        "kodda": [],
+        "npm": []
+      }
+    },
+    "theme-toggle": {
+      "name": "ThemeToggle",
+      "description": "Toggle de tema claro/escuro/sistema com dropdown",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/theme-toggle/theme-toggle.tsx",
+        "src/components/composites/theme-toggle/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["button", "dropdown-menu"],
+        "kodda": [],
+        "npm": ["next-themes"]
+      }
+    },
+    "number-input": {
+      "name": "NumberInput",
+      "description": "Input numérico com formatação de milhar e decimal configurável",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/number-input/number-input.tsx",
+        "src/components/composites/number-input/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": [],
+        "kodda": [],
+        "npm": ["react-number-format"]
+      }
+    },
+    "locale-toggle": {
+      "name": "LocaleToggle",
+      "description": "Seletor de idioma/locale com dropdown",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/locale-toggle/locale-toggle.tsx",
+        "src/components/composites/locale-toggle/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["button", "dropdown-menu"],
+        "kodda": [],
+        "npm": []
+      }
+    },
+    "require-permission": {
+      "name": "RequirePermission",
+      "description": "Gate de permissão com suporte a single/all/any e fallback AccessDenied",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/require-permission/require-permission.tsx",
+        "src/components/composites/require-permission/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": [],
+        "kodda": [],
+        "npm": []
+      }
+    },
+    "export-modal": {
+      "name": "ExportModal",
+      "description": "Modal de exportação de dados com estados de progresso e download",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/export-modal/export-modal.tsx",
+        "src/components/composites/export-modal/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": [],
+        "kodda": [],
+        "npm": []
+      }
+    },
+    "app-sidebar": {
+      "name": "AppSidebar",
+      "description": "Sidebar de navegação colapsável com ícones, badges e toggle",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/app-sidebar/app-sidebar.tsx",
+        "src/components/composites/app-sidebar/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": [],
+        "kodda": [],
+        "npm": []
+      }
+    },
+    "app-header": {
+      "name": "AppHeader",
+      "description": "Header de aplicação com menu mobile, avatar e menu do usuário",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/app-header/app-header.tsx",
+        "src/components/composites/app-header/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": [],
+        "kodda": [],
+        "npm": []
+      }
+    },
+    "app-layout": {
+      "name": "AppLayout",
+      "description": "Layout de aplicação com sidebar, header e conteúdo responsivo",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/app-layout/app-layout.tsx",
+        "src/components/composites/app-layout/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": [],
+        "kodda": ["app-sidebar", "app-header"],
+        "npm": []
+      }
+    },
+    "header-notifications": {
+      "name": "HeaderNotifications",
+      "description": "Dropdown de notificações com badge, lista e time-ago",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/header-notifications/header-notifications.tsx",
+        "src/components/composites/header-notifications/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": [],
+        "kodda": [],
+        "npm": []
+      }
+    },
+    "portal-page": {
+      "name": "PortalPage",
+      "description": "Template de página de portal com cards de estatísticas, seções agrupadas e itens em formato de card",
+      "category": "template",
+      "version": "0.1.0",
+      "files": [
+        "src/components/templates/portal-page/portal-page.tsx",
+        "src/components/templates/portal-page/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": [],
+        "kodda": [],
+        "npm": []
+      }
+    },
+    "manage-list-page": {
+      "name": "ManageListPage",
+      "description": "Template de página de listagem para área administrativa com header de ícone, toolbar e DataTable",
+      "category": "template",
+      "version": "0.1.0",
+      "files": [
+        "src/components/templates/manage-list-page/manage-list-page.tsx",
+        "src/components/templates/manage-list-page/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": [],
+        "kodda": ["data-table"],
+        "npm": ["@tanstack/react-table"]
+      }
+    },
+    "onboarding-checklist": {
+      "name": "OnboardingChecklist",
+      "description": "Checklist de onboarding com tarefas, ícones e status pendente/concluído",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/onboarding-checklist/onboarding-checklist.tsx",
+        "src/components/composites/onboarding-checklist/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": [],
+        "kodda": [],
+        "npm": []
+      }
+    },
+    "manage-login-page": {
+      "name": "ManageLoginPage",
+      "description": "Template de página de login para área administrativa com Google OAuth",
+      "category": "template",
+      "version": "0.1.0",
+      "files": [
+        "src/components/templates/manage-login-page/manage-login-page.tsx",
+        "src/components/templates/manage-login-page/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": [],
+        "kodda": [],
+        "npm": []
+      }
+    },
+    "multiple-emails": {
+      "name": "MultipleEmails",
+      "description": "Campo dinâmico para cadastro de múltiplos e-mails com label e endereço",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/multiple-emails/multiple-emails.tsx",
+        "src/components/composites/multiple-emails/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["form", "input", "button"],
+        "kodda": [],
+        "npm": ["react-hook-form"]
+      }
+    },
+    "multiple-phones": {
+      "name": "MultiplePhones",
+      "description": "Campo dinâmico para cadastro de múltiplos telefones com tipo, DDD e número",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/multiple-phones/multiple-phones.tsx",
+        "src/components/composites/multiple-phones/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["form", "input", "select", "button"],
+        "kodda": [],
+        "npm": ["react-hook-form"]
+      }
+    },
+    "multiple-websites": {
+      "name": "MultipleWebsites",
+      "description": "Campo dinâmico para cadastro de múltiplos websites com label e URL",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/multiple-websites/multiple-websites.tsx",
+        "src/components/composites/multiple-websites/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["form", "input", "button"],
+        "kodda": [],
+        "npm": ["react-hook-form"]
+      }
+    },
+    "multiple-addresses": {
+      "name": "MultipleAddresses",
+      "description": "Campo dinâmico para cadastro de múltiplos endereços com AddressFormFields",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/multiple-addresses/multiple-addresses.tsx",
+        "src/components/composites/multiple-addresses/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": ["form", "input", "button"],
+        "kodda": ["address-form-fields"],
+        "npm": ["react-hook-form"]
+      }
+    },
+    "landing-navbar": {
+      "name": "LandingNavbar",
+      "description": "Barra de navegação responsiva para landing pages com logo, links e CTA",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/landing-navbar/landing-navbar.tsx",
+        "src/components/composites/landing-navbar/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": [],
+        "kodda": [],
+        "npm": []
+      }
+    },
+    "landing-hero": {
+      "name": "LandingHero",
+      "description": "Seção hero com headline, subheadline, CTAs e imagem opcional",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/landing-hero/landing-hero.tsx",
+        "src/components/composites/landing-hero/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": [],
+        "kodda": [],
+        "npm": []
+      }
+    },
+    "landing-features": {
+      "name": "LandingFeatures",
+      "description": "Grid de features com ícones, títulos e descrições",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/landing-features/landing-features.tsx",
+        "src/components/composites/landing-features/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": [],
+        "kodda": [],
+        "npm": []
+      }
+    },
+    "landing-metrics": {
+      "name": "LandingMetrics",
+      "description": "Seção de métricas/estatísticas com variantes light e dark",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/landing-metrics/landing-metrics.tsx",
+        "src/components/composites/landing-metrics/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": [],
+        "kodda": [],
+        "npm": []
+      }
+    },
+    "landing-cta": {
+      "name": "LandingCta",
+      "description": "Seção de call-to-action com variantes light, dark e gold",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/landing-cta/landing-cta.tsx",
+        "src/components/composites/landing-cta/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": [],
+        "kodda": [],
+        "npm": []
+      }
+    },
+    "landing-footer": {
+      "name": "LandingFooter",
+      "description": "Footer com logo, descrição, links agrupados e redes sociais",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/landing-footer/landing-footer.tsx",
+        "src/components/composites/landing-footer/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": [],
+        "kodda": [],
+        "npm": []
+      }
+    },
+    "landing-page": {
+      "name": "LandingPage",
+      "description": "Template completo de landing page com navbar, hero, features, metrics, CTA e footer",
+      "category": "template",
+      "version": "0.1.0",
+      "files": [
+        "src/components/templates/landing-page/landing-page.tsx",
+        "src/components/templates/landing-page/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": [],
+        "kodda": ["landing-navbar", "landing-hero", "landing-features", "landing-metrics", "landing-cta", "landing-footer"],
+        "npm": []
+      }
+    }
+  }
+}

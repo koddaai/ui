@@ -1,0 +1,157 @@
+import fs from 'fs-extra';
+import path from 'path';
+import crypto from 'crypto';
+import { execa } from 'execa';
+import { KoddaConfig } from './config.js';
+import { ComponentDef } from './registry.js';
+
+/**
+ * Compute a short hash of file content for change detection.
+ */
+export function computeHash(content: string): string {
+  return crypto.createHash('sha256').update(content).digest('hex').slice(0, 12);
+}
+
+/**
+ * Compute combined hash for all files of a component in the project.
+ */
+export async function computeComponentHash(
+  component: ComponentDef,
+  config: KoddaConfig,
+  projectDir: string = process.cwd(),
+): Promise<string> {
+  const contents: string[] = [];
+  for (const file of component.files) {
+    const relativePath = file.replace(/^src\/components\//, '');
+    const destPath = path.join(projectDir, config.componentDir, relativePath);
+    if (await fs.pathExists(destPath)) {
+      contents.push(await fs.readFile(destPath, 'utf-8'));
+    }
+  }
+  return computeHash(contents.join('\n'));
+}
+
+/**
+ * Detect the package manager used in the project.
+ */
+export function detectPackageManager(projectDir: string = process.cwd()): 'npm' | 'pnpm' | 'yarn' | 'bun' {
+  if (fs.existsSync(path.join(projectDir, 'bun.lockb')) || fs.existsSync(path.join(projectDir, 'bun.lock'))) {
+    return 'bun';
+  }
+  if (fs.existsSync(path.join(projectDir, 'pnpm-lock.yaml'))) {
+    return 'pnpm';
+  }
+  if (fs.existsSync(path.join(projectDir, 'yarn.lock'))) {
+    return 'yarn';
+  }
+  return 'npm';
+}
+
+/**
+ * Rewrite import paths in component source code to match the consumer project's aliases.
+ */
+export function rewriteImports(
+  content: string,
+  config: KoddaConfig,
+): string {
+  let result = content;
+
+  // Rewrite kodda composite imports:
+  // from '@/components/kodda/composites/...' to the project's alias
+  result = result.replace(
+    /@\/components\/kodda\//g,
+    `${config.alias}/`,
+  );
+
+  // Rewrite shadcn imports:
+  // from '@/components/ui/...' to the project's shadcn alias
+  result = result.replace(
+    /@\/components\/ui\//g,
+    `${config.shadcnAlias}/`,
+  );
+
+  return result;
+}
+
+/**
+ * Copy a kodda component's files to the consumer project.
+ *
+ * When `options.sourceDir` is set (--local mode), reads files from the local filesystem.
+ * When `options.fetchFile` is set (remote mode), downloads files via HTTP.
+ */
+export async function installComponent(
+  component: ComponentDef,
+  slug: string,
+  config: KoddaConfig,
+  options: { sourceDir?: string; fetchFile?: (filePath: string) => Promise<string> },
+  projectDir: string = process.cwd(),
+): Promise<void> {
+  for (const file of component.files) {
+    // Map source path to destination path
+    // e.g., src/components/composites/status-badge/index.ts → {componentDir}/composites/status-badge/index.ts
+    const relativePath = file.replace(/^src\/components\//, '');
+    const destPath = path.join(projectDir, config.componentDir, relativePath);
+
+    // Don't overwrite existing files
+    if (await fs.pathExists(destPath)) {
+      continue;
+    }
+
+    // Read source content (local or remote)
+    const content = await getFileContent(file, options);
+    const rewritten = rewriteImports(content, config);
+
+    await fs.ensureDir(path.dirname(destPath));
+    await fs.writeFile(destPath, rewritten, 'utf-8');
+  }
+}
+
+/**
+ * Read a file from local sourceDir or fetch remotely.
+ * Used by install, diff, and update commands.
+ */
+export async function getFileContent(
+  filePath: string,
+  options: { sourceDir?: string; fetchFile?: (filePath: string) => Promise<string> },
+): Promise<string> {
+  if (options.sourceDir) {
+    return fs.readFile(path.join(options.sourceDir, filePath), 'utf-8');
+  }
+  if (options.fetchFile) {
+    return options.fetchFile(filePath);
+  }
+  throw new Error('No source directory or fetch function provided.');
+}
+
+/**
+ * Install shadcn dependencies via npx shadcn@latest add.
+ */
+export async function installShadcnDeps(
+  deps: string[],
+  projectDir: string = process.cwd(),
+): Promise<void> {
+  if (deps.length === 0) return;
+
+  await execa('npx', ['shadcn@latest', 'add', ...deps, '--yes'], {
+    cwd: projectDir,
+    stdio: 'pipe',
+  });
+}
+
+/**
+ * Install npm package dependencies.
+ */
+export async function installNpmDeps(
+  deps: string[],
+  projectDir: string = process.cwd(),
+): Promise<void> {
+  if (deps.length === 0) return;
+
+  const pm = detectPackageManager(projectDir);
+  const installCmd = pm === 'yarn' ? 'add' : 'install';
+
+  await execa(pm, [installCmd, ...deps], {
+    cwd: projectDir,
+    stdio: 'pipe',
+  });
+}
