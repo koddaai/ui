@@ -2,6 +2,11 @@ import Link from "next/link"
 
 const categories = [
   {
+    title: "Charts",
+    count: 4,
+    components: ["BarChart", "LineChart", "AreaChart", "PieChart"],
+  },
+  {
     title: "Data & Tables",
     count: 6,
     components: ["DataTable", "FilterBar", "StatusBadge"],
