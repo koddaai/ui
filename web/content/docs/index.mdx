@@ -1,6 +1,6 @@
 ---
 title: Introdução
-description: Design System para produtos Kobana
+description: Design System para produtos kodda
 ---
 
 Design System composto por componentes reutilizáveis e acessíveis, construído sobre [shadcn/ui](https://ui.shadcn.com).
@@ -8,19 +8,19 @@ Design System composto por componentes reutilizáveis e acessíveis, construído
 ## Princípios
 
 - **Copy, don't install** — Componentes são copiados para o projeto, não importados como dependência
-- **3 camadas** — Primitivos (shadcn/ui) → Compostos (Kobana) → Templates (páginas completas)
+- **3 camadas** — Primitivos (shadcn/ui) → Compostos (kodda) → Templates (páginas completas)
 - **TypeScript-first** — Tipagem completa para todos os componentes e hooks
 - **CLI-driven** — Instale e atualize via CLI
 
 ## Quick Start
 
 ```bash
-npx @kobana/ui init
-npx @kobana/ui add status-badge
+npx @koddaai/ui init
+npx @koddaai/ui add status-badge
 ```
 
 ```tsx
-import { StatusBadge } from "@/components/kobana/status-badge"
+import { StatusBadge } from "@/components/kodda/status-badge"
 
 export function Example() {
   return <StatusBadge status="active" label="Ativo" />

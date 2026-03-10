@@ -1,25 +1,25 @@
 ---
 title: Arquitetura
-description: Modelo de 3 camadas do Kobana UI Design System
+description: Modelo de 3 camadas do kodda UI Design System
 ---
 
 ## Filosofia: Copy, Don't Install
 
-Diferente de bibliotecas de componentes tradicionais, o Kobana UI **copia** os componentes para o seu projeto. Isso significa:
+Diferente de bibliotecas de componentes tradicionais, o kodda UI **copia** os componentes para o seu projeto. Isso significa:
 
 - **Controle total** — Você pode modificar qualquer componente
 - **Zero breaking changes** — Atualizações são opt-in via CLI
-- **Sem acoplamento** — Nenhuma dependência runtime do Kobana
+- **Sem acoplamento** — Nenhuma dependência runtime do kodda
 - **Diff** — Você pode comparar sua versão local com o registry
 
 ## Modelo de 3 Camadas
 
 ```
 ┌─────────────────────────────────────────┐
-│           Templates (Kobana)            │
+│           Templates (kodda)            │
 │   ListPage · DetailPage · FormPage      │
 ├─────────────────────────────────────────┤
-│           Compostos (Kobana)            │
+│           Compostos (kodda)            │
 │  DataTable · PageHeader · FilterBar     │
 │  StatusBadge · ConfirmDialog · ...      │
 ├─────────────────────────────────────────┤
@@ -30,17 +30,17 @@ Diferente de bibliotecas de componentes tradicionais, o Kobana UI **copia** os c
 
 ### Camada 1 — Primitivos (shadcn/ui)
 
-Componentes atômicos sem lógica de negócio. São instalados automaticamente como dependências quando você adiciona um composto Kobana.
+Componentes atômicos sem lógica de negócio. São instalados automaticamente como dependências quando você adiciona um composto kodda.
 
-### Camada 2 — Compostos (Kobana)
+### Camada 2 — Compostos (kodda)
 
-Componentes que combinam múltiplos primitivos para resolver padrões recorrentes nos produtos Kobana. Exemplos:
+Componentes que combinam múltiplos primitivos para resolver padrões recorrentes nos produtos kodda. Exemplos:
 
 - **DataTable** — Tabela com busca, filtros, paginação, sorting, seleção e ações (inline, sem shadcn deps)
 - **FilterBar** — Combina Input + Select + Popover + Calendar + Badge
 - **PageHeader** — Combina Breadcrumb + Button
 
-### Camada 3 — Templates (Kobana)
+### Camada 3 — Templates (kodda)
 
 Páginas completas que compõem múltiplos compostos. São o ponto de partida para novas funcionalidades:
 
@@ -53,6 +53,6 @@ Páginas completas que compõem múltiplos compostos. São o ponto de partida pa
 Todos os componentes vivem em um registry JSON centralizado. Cada entrada define:
 
 - **Arquivos** — Quais arquivos compõem o componente
-- **Dependências** — shadcn, kobana e npm
+- **Dependências** — shadcn, kodda e npm
 - **Versão** — Para controle de atualizações
 - **Categoria** — composite, template, hook ou token

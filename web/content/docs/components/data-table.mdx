@@ -1,6 +1,6 @@
 ---
 title: DataTable
-description: Tabela de dados com busca, filtros, paginação, sorting, seleção, ações e visibilidade de colunas. Baseada no dashboard Kobana Billing.
+description: Tabela de dados com busca, filtros, paginação, sorting, seleção, ações e visibilidade de colunas. Baseada no dashboard kodda Billing.
 ---
 
 <ComponentPreview name="data-table-demo" />
@@ -8,7 +8,7 @@ description: Tabela de dados com busca, filtros, paginação, sorting, seleção
 ## Instalação
 
 ```bash
-npx @kobana/ui add data-table
+npx @koddaai/ui add data-table
 ```
 
 **Dependências instaladas automaticamente:**
@@ -17,13 +17,13 @@ npx @kobana/ui add data-table
 ## Importação
 
 ```tsx
-import { DataTable } from "@/components/kobana/data-table"
-import { DataTableColumnHeader } from "@/components/kobana/data-table"
+import { DataTable } from "@/components/kodda/data-table"
+import { DataTableColumnHeader } from "@/components/kodda/data-table"
 ```
 
 ## Layout
 
-O layout segue o padrão do dashboard Kobana Billing:
+O layout segue o padrão do dashboard kodda Billing:
 
 1. **Busca** — Input com ícone de lupa no topo, debounce de 300ms
 2. **Filtros + Refresh** — Linha abaixo da busca com filtros à esquerda e botão de refresh à direita
@@ -102,7 +102,7 @@ const columns: ColumnDef<Product>[] = [
 Para tabelas sem TanStack, use `SimpleSortableHeader`:
 
 ```tsx
-import { SimpleSortableHeader } from "@/components/kobana/data-table"
+import { SimpleSortableHeader } from "@/components/kodda/data-table"
 
 <SimpleSortableHeader
   title="Nome"

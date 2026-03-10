@@ -43,7 +43,7 @@ export default async function Page(props: {
   }
 
   const slugPath = (params.slug ?? []).join("/")
-  const pageUrl = `https://ui.kobana.com.br${page.url}`
+  const pageUrl = `https://kodda.ai/ui${page.url}`
 
   return (
     <DocsPage toc={page.data.toc}>

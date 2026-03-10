@@ -654,6 +654,22 @@
         "kodda": ["landing-navbar", "landing-hero", "landing-features", "landing-metrics", "landing-cta", "landing-footer"],
         "npm": []
       }
+    },
+    "chart": {
+      "name": "Chart",
+      "description": "Sistema de charts (Bar, Line, Area, Pie) integrado ao design system kodda com suporte a dark mode",
+      "category": "composite",
+      "version": "0.1.0",
+      "files": [
+        "src/components/composites/chart/chart.tsx",
+        "src/components/composites/chart/chart-config.ts",
+        "src/components/composites/chart/index.ts"
+      ],
+      "dependencies": {
+        "shadcn": [],
+        "kodda": ["tokens"],
+        "npm": ["recharts"]
+      }
     }
   }
 }

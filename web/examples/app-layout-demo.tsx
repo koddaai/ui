@@ -11,7 +11,7 @@ export default function AppLayoutDemo() {
         className={`flex flex-col border-r bg-muted/30 transition-all ${collapsed ? "w-12" : "w-48"}`}
       >
         <div className="flex h-12 items-center border-b px-3 font-bold">
-          {collapsed ? "K" : "Kobana"}
+          {collapsed ? "K" : "kodda"}
         </div>
         <nav className="flex-1 space-y-1 p-2">
           {["Dashboard", "Cobranças", "Clientes"].map((item) => (
@@ -33,7 +33,7 @@ export default function AppLayoutDemo() {
       <div className="flex flex-1 flex-col">
         <header className="flex h-12 items-center border-b px-4 text-sm">
           <span className="font-medium">Dashboard</span>
-          <span className="ml-auto text-muted-foreground">user@kobana.com</span>
+          <span className="ml-auto text-muted-foreground">user@kodda.com</span>
         </header>
         <main className="flex-1 p-4 text-sm text-muted-foreground">
           Conteúdo principal da aplicação.

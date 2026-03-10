@@ -19,7 +19,7 @@ export default function AppSidebarDemo() {
         className={`flex flex-col rounded-lg border transition-all ${collapsed ? "w-14" : "w-56"}`}
       >
         <div className="flex h-12 items-center border-b px-3 font-bold">
-          {collapsed ? "K" : "Kobana"}
+          {collapsed ? "K" : "kodda"}
         </div>
         <nav className="flex-1 space-y-1 p-2">
           {navItems.map((item) => (

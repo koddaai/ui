@@ -4,13 +4,13 @@ import React, { useState } from "react"
 
 // ─── Inline Logo ──────────────────────────────────────────────────────────────
 
-function KobanaLogo() {
+function koddaLogo() {
   return (
     <div className="flex items-center gap-2">
       <div className="flex size-8 items-center justify-center rounded-lg bg-[#D3FD54]">
         <span className="text-lg font-bold text-black">K</span>
       </div>
-      <span className="text-lg font-bold text-white">kobana</span>
+      <span className="text-lg font-bold text-white">kodda</span>
     </div>
   )
 }
@@ -57,7 +57,7 @@ export default function ManageLoginPageDemo() {
     setError(null)
     // Simulate login delay
     await new Promise((resolve) => setTimeout(resolve, 2000))
-    setError("Acesso negado. Apenas emails @kobana.com.br são permitidos.")
+    setError("Acesso negado. Apenas emails @kodda.com.br são permitidos.")
     setIsLoading(false)
   }
 
@@ -68,11 +68,11 @@ export default function ManageLoginPageDemo() {
           {/* Header */}
           <div className="mb-6 space-y-4 text-center">
             <div className="flex justify-center">
-              <KobanaLogo />
+              <koddaLogo />
             </div>
             <div>
               <h1 className="text-2xl font-bold text-white">Backoffice Admin</h1>
-              <p className="mt-1 text-sm text-slate-400">Acesso restrito à equipe Kobana</p>
+              <p className="mt-1 text-sm text-slate-400">Acesso restrito à equipe kodda</p>
             </div>
           </div>
 
@@ -108,7 +108,7 @@ export default function ManageLoginPageDemo() {
 
             {/* Restriction notice */}
             <p className="text-center text-xs text-slate-500">
-              Apenas emails @kobana.com.br são autorizados
+              Apenas emails @kodda.com.br são autorizados
             </p>
           </div>
         </div>

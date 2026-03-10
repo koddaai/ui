@@ -1,5 +1,5 @@
 {
-  "name": "@kobana/ui-docs",
+  "name": "@koddaai/ui-docs",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -21,6 +21,7 @@
     "radix-ui": "^1.4.3",
     "react": "^19",
     "react-dom": "^19",
+    "recharts": "^3.8.0",
     "shiki": "^3",
     "tailwind-merge": "^3"
   },
@@ -29,6 +30,7 @@
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "chokidar": "^5.0.0",
     "tailwindcss": "^4",
     "typescript": "^5.5"
   }

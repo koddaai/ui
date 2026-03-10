@@ -123,7 +123,7 @@ export default function DashboardLoginPageDemo() {
                 </>
               ) : (
                 <>
-                  Entrar com Kobana
+                  Entrar com kodda
                   <ExternalLinkIcon className="ml-2 size-4" />
                 </>
               )}

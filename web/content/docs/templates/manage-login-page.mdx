@@ -8,13 +8,13 @@ description: Template de página de login para área administrativa com autentic
 ## Instalação
 
 ```bash
-npx @kobana/ui add manage-login-page
+npx @koddaai/ui add manage-login-page
 ```
 
 ## Importação
 
 ```tsx
-import { ManageLoginPage } from "@/components/kobana/templates/manage-login-page"
+import { ManageLoginPage } from "@/components/kodda/templates/manage-login-page"
 ```
 
 ## Quando usar
@@ -56,8 +56,8 @@ Para login de dashboard com magic link + OAuth, use o template **DashboardLoginP
   logo={<Logo variant="dark" />}
   labels={{
     title: "Backoffice Admin",
-    description: "Acesso restrito à equipe Kobana",
-    restrictionNotice: "Apenas emails @kobana.com.br são autorizados",
+    description: "Acesso restrito à equipe kodda",
+    restrictionNotice: "Apenas emails @kodda.ai.br são autorizados",
   }}
   onLogin={handleGoogleLogin}
   loginDisabled={!csrfToken}

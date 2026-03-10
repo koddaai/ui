@@ -1,12 +1,12 @@
 ---
 title: Cores
-description: Paleta de cores da marca e cores semânticas do Kobana UI.
+description: Paleta de cores da marca e cores semânticas do kodda UI.
 ---
 
 ## Instalação
 
 ```bash
-npx @kobana/ui add tokens
+npx @koddaai/ui add tokens
 ```
 
 ## Cores da Marca
@@ -15,24 +15,24 @@ Paleta oficial conforme Branding Book. As cores principais (lime e black) devem 
 
 | Cor | Hex | Token | Uso |
 |-----|-----|-------|-----|
-| Verde-limão | `#D3FD54` | `kobana-lime` | Cor primária, CTAs, destaques |
-| Preto | `#000000` | `kobana-black` | Textos, fundos escuros, contraste |
-| Branco | `#FDFDFB` | `kobana-white` | Fundos claros, texto em fundo escuro |
-| Cinza | `#676767` | `kobana-gray` | Textos secundários, elementos neutros |
-| Roxo | `#A630DA` | `kobana-purple` | Destaques, CTAs secundários |
+| Verde-limão | `#D3FD54` | `kodda-blue` | Cor primária, CTAs, destaques |
+| Preto | `#000000` | `kodda-black` | Textos, fundos escuros, contraste |
+| Branco | `#FDFDFB` | `kodda-white` | Fundos claros, texto em fundo escuro |
+| Cinza | `#676767` | `kodda-gray` | Textos secundários, elementos neutros |
+| Roxo | `#A630DA` | `kodda-purple` | Destaques, CTAs secundários |
 
 ### Uso com Tailwind
 
 ```html
-<button class="bg-kobana-lime text-kobana-black">Ação principal</button>
-<span class="text-kobana-gray">Texto secundário</span>
-<a class="text-kobana-purple">Link de destaque</a>
+<button class="bg-kodda-blue text-kodda-black">Ação principal</button>
+<span class="text-kodda-gray">Texto secundário</span>
+<a class="text-kodda-purple">Link de destaque</a>
 ```
 
 ### Uso via TypeScript
 
 ```tsx
-import { brandColors, semanticColors } from "@kobana/ui/tokens/colors"
+import { brandColors, semanticColors } from "@koddaai/ui/tokens/colors"
 
 brandColors.lime      // "#D3FD54"
 brandColors.purple    // "#A630DA"
@@ -50,7 +50,7 @@ A classe `.dashboard-theme` ativa o verde-limão como cor primária dos componen
 
 ```html
 <div class="dashboard-theme">
-  <!-- bg-primary agora é Kobana Lime -->
+  <!-- bg-primary agora é kodda Lime -->
   <button class="bg-primary text-primary-foreground">Salvar</button>
 </div>
 ```

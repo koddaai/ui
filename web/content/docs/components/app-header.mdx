@@ -8,13 +8,13 @@ description: Header de aplicação com menu mobile, avatar e menu do usuário.
 ## Instalação
 
 ```bash
-npx @kobana/ui add app-header
+npx @koddaai/ui add app-header
 ```
 
 ## Importação
 
 ```tsx
-import { AppHeader } from "@/components/kobana/app-header"
+import { AppHeader } from "@/components/kodda/app-header"
 ```
 
 ## Props
@@ -35,7 +35,7 @@ import { AppHeader } from "@/components/kobana/app-header"
 
 ```tsx
 <AppHeader
-  user={{ name: "João Silva", email: "joao@kobana.com" }}
+  user={{ name: "João Silva", email: "joao@kodda.ai" }}
   onMenuClick={() => setMobileMenuOpen(true)}
   onSignOut={handleSignOut}
   menuItems={[

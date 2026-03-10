@@ -8,13 +8,13 @@ description: Sidebar de navegação colapsável com ícones, badges e toggle.
 ## Instalação
 
 ```bash
-npx @kobana/ui add app-sidebar
+npx @koddaai/ui add app-sidebar
 ```
 
 ## Importação
 
 ```tsx
-import { AppSidebar } from "@/components/kobana/app-sidebar"
+import { AppSidebar } from "@/components/kodda/app-sidebar"
 ```
 
 ## Props
@@ -53,7 +53,7 @@ interface NavItem {
     { title: "Cobranças", href: "/charges", icon: CreditCard, badge: 3 },
     { title: "Clientes", href: "/customers", icon: Users },
   ]}
-  logo={<span className="font-bold">Kobana</span>}
+  logo={<span className="font-bold">kodda</span>}
   collapsedLogo={<span className="font-bold">K</span>}
   isActive={(href) => pathname === href}
 />

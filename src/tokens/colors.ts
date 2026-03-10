@@ -89,3 +89,58 @@ export const tokensCss = `@layer base {
   }
 }
 `;
+
+/**
+ * Chart Colors
+ *
+ * Paleta de cores para gráficos, baseada nas cores do design system.
+ */
+export const chartColors = {
+  /** Kodda Blue - série principal */
+  chart1: 'var(--chart-1)',
+  /** Success Green - métricas positivas */
+  chart2: 'var(--chart-2)',
+  /** Warning Yellow - alertas */
+  chart3: 'var(--chart-3)',
+  /** Info Blue - dados informativos */
+  chart4: 'var(--chart-4)',
+  /** Error Red - métricas negativas */
+  chart5: 'var(--chart-5)',
+  /** Purple - série secundária */
+  chart6: 'var(--chart-6)',
+  /** Teal - comparativos */
+  chart7: 'var(--chart-7)',
+  /** Orange - destaque alternativo */
+  chart8: 'var(--chart-8)',
+} as const;
+
+export type ChartColor = keyof typeof chartColors;
+
+/**
+ * CSS for chart colors to be added to the consumer project's global styles.
+ */
+export const chartTokensCss = `@layer base {
+  :root {
+    /* Chart Colors */
+    --chart-1: oklch(0.59 0.2 277);
+    --chart-2: oklch(0.72 0.19 142);
+    --chart-3: oklch(0.75 0.18 85);
+    --chart-4: oklch(0.7 0.15 250);
+    --chart-5: oklch(0.63 0.24 25);
+    --chart-6: oklch(0.65 0.15 320);
+    --chart-7: oklch(0.7 0.12 180);
+    --chart-8: oklch(0.68 0.18 55);
+  }
+
+  .dark {
+    --chart-1: oklch(0.65 0.18 277);
+    --chart-2: oklch(0.78 0.17 142);
+    --chart-3: oklch(0.8 0.16 85);
+    --chart-4: oklch(0.76 0.13 250);
+    --chart-5: oklch(0.7 0.22 25);
+    --chart-6: oklch(0.72 0.14 320);
+    --chart-7: oklch(0.75 0.11 180);
+    --chart-8: oklch(0.74 0.16 55);
+  }
+}
+`;

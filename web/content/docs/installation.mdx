@@ -1,11 +1,11 @@
 ---
 title: Instalação
-description: Como instalar e configurar o Kobana UI no seu projeto
+description: Como instalar e configurar o kodda UI no seu projeto
 ---
 
 ## Pré-requisitos
 
-O Kobana UI é uma camada acima do [shadcn/ui](https://ui.shadcn.com). Você precisa de:
+O kodda UI é uma camada acima do [shadcn/ui](https://ui.shadcn.com). Você precisa de:
 
 - **React 18+** e **Next.js 14+** (ou outro framework com suporte a RSC)
 - **Tailwind CSS v4** configurado
@@ -16,15 +16,15 @@ O Kobana UI é uma camada acima do [shadcn/ui](https://ui.shadcn.com). Você pre
 Execute o comando `init` na raiz do seu projeto:
 
 ```bash
-npx @kobana/ui init
+npx @koddaai/ui init
 ```
 
 O comando irá:
 
 1. Detectar se shadcn/ui está configurado
 2. Validar dependências base (react, tailwindcss)
-3. Criar o arquivo `kobana.json` com a configuração
-4. Criar a estrutura de diretórios para componentes Kobana
+3. Criar o arquivo `kodda.json` com a configuração
+4. Criar a estrutura de diretórios para componentes kodda
 
 ### Estrutura criada
 
@@ -32,10 +32,10 @@ O comando irá:
 seu-projeto/
 ├── components/
 │   ├── ui/          # Primitivos shadcn/ui (já existente)
-│   └── kobana/      # Compostos Kobana UI ← novo
-├── hooks/           # Hooks Kobana UI ← novo
+│   └── kodda/      # Compostos kodda UI ← novo
+├── hooks/           # Hooks kodda UI ← novo
 ├── tokens/          # Design tokens ← novo
-└── kobana.json      # Configuração ← novo
+└── kodda.json      # Configuração ← novo
 ```
 
 ## Adicionar componentes
@@ -43,9 +43,9 @@ seu-projeto/
 Instale componentes individualmente:
 
 ```bash
-npx @kobana/ui add status-badge
-npx @kobana/ui add data-table
-npx @kobana/ui add page-header
+npx @koddaai/ui add status-badge
+npx @koddaai/ui add data-table
+npx @koddaai/ui add page-header
 ```
 
 O CLI resolve dependências automaticamente. Por exemplo, `data-table` instala:
@@ -57,7 +57,7 @@ O CLI resolve dependências automaticamente. Por exemplo, `data-table` instala:
 Veja todos os componentes disponíveis:
 
 ```bash
-npx @kobana/ui list
+npx @koddaai/ui list
 ```
 
 ## Uso
@@ -65,7 +65,7 @@ npx @kobana/ui list
 Após instalar, importe diretamente do seu projeto:
 
 ```tsx
-import { StatusBadge } from "@/components/kobana/status-badge"
-import { DataTable } from "@/components/kobana/data-table"
-import { PageHeader } from "@/components/kobana/page-header"
+import { StatusBadge } from "@/components/kodda/status-badge"
+import { DataTable } from "@/components/kodda/data-table"
+import { PageHeader } from "@/components/kodda/page-header"
 ```

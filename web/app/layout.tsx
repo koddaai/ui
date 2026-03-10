@@ -15,11 +15,11 @@ const syne = Syne({
 
 export const metadata: Metadata = {
   title: {
-    default: "Kobana UI",
-    template: "%s — Kobana UI",
+    default: "kodda UI",
+    template: "%s — kodda UI",
   },
   description:
-    "Design System para produtos Kobana. Componentes compostos, reutilizáveis e acessíveis construídos com shadcn/ui.",
+    "Design System da kodda.ai. Componentes compostos, reutilizáveis e acessíveis construídos com shadcn/ui.",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -37,17 +37,17 @@ export const metadata: Metadata = {
   },
   manifest: "/favicon/site.webmanifest",
   openGraph: {
-    title: "Kobana UI",
+    title: "kodda UI",
     description:
-      "Design System para produtos Kobana. Componentes compostos, reutilizáveis e acessíveis construídos com shadcn/ui.",
+      "Design System da kodda.ai. Componentes compostos, reutilizáveis e acessíveis construídos com shadcn/ui.",
     type: "website",
-    siteName: "Kobana UI",
+    siteName: "kodda UI",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kobana UI",
+    title: "kodda UI",
     description:
-      "Design System para produtos Kobana. Componentes compostos, reutilizáveis e acessíveis construídos com shadcn/ui.",
+      "Design System da kodda.ai. Componentes compostos, reutilizáveis e acessíveis construídos com shadcn/ui.",
   },
   other: {
     "msapplication-TileColor": "#D3FD54",
