@@ -24,7 +24,7 @@ const DEFAULT_CONFIG: KoddaConfig = {
   typescript: true,
   alias: '@/components/kodda',
   shadcnAlias: '@/components/ui',
-  registry: 'https://raw.githubusercontent.com/kodda/ui/main/registry/registry.json',
+  registry: 'https://raw.githubusercontent.com/koddaai/ui/main/registry/registry.json',
   installed: {},
 };
 
